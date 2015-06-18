@@ -8,27 +8,34 @@
 </head>
 <body ng-app="myApp">
   <div class="container" ng-controller="AppController">
-    <div class="page-header">
-        <h1>Candidates</h1>
+    <div class="page-header" id="banner">
+        <h1>Hiring made easy.</h1>
+        <p class="lead">
+          Find right candidates quickly.
+        </p>
     </div>
       <div class="alert alert-info" role="alert" ng-hide="candidates && candidates.length > 0">
           There are no candidates yet.
       </div>
+        <table class="table table-striped table-hover ">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="candidate in candidates">
+                    <td>{{candidate.id}}</td>
+                    <td>{{candidate.name}}</td>
+                    <td>{{candidate.surname}}</td>
+                    <td>{{candidate.email}}</td>
+                </tr>
+            </tbody>
+        </table>
 
-      <div class="row">
-          <div class="col-xs-2">Id</div>
-          <div class="col-xs-2">Name</div>
-          <div class="col-xs-2">Surname</div>
-          <div class="col-xs-2">Mail</div>
-      </div>
-
-
-      <div class="row" ng-repeat="candidate in candidates">
-          <div class="col-xs-2">{{candidate.id}}</div>
-          <div class="col-xs-2">{{candidate.name}}</div>
-          <div class="col-xs-2">{{candidate.surname}}</div>
-          <div class="col-xs-2">{{candidate.email}}</div>
-      </div>
 
   </div>
   <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
