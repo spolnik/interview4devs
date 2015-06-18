@@ -65,4 +65,8 @@ public class Candidate {
                 ", email='" + email + '\'' +
                 '}';
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

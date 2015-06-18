@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
+    "lodash": "~3.9.3",
     "angular": "~1.4.1",
     "angular-resource": "~1.4.1",
     "bootstrap-css-only": "~3.3.4"

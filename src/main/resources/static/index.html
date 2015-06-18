@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+  <title>Interviewing for devs</title>
+  <link rel="stylesheet" href="./bower_components/bootstrap-css-only/css/bootstrap.min.css" />
+</head>
+<body ng-app="myApp">
+  <div class="container" ng-controller="AppController">
+    <div class="page-header">
+        <h1>Candidates</h1>
+    </div>
+      <div class="alert alert-info" role="alert" ng-hide="candidates && candidates.length > 0">
+          There are no candidates yet.
+      </div>
+
+      <div class="row">
+          <div class="col-xs-2">Id</div>
+          <div class="col-xs-2">Name</div>
+          <div class="col-xs-2">Surname</div>
+          <div class="col-xs-2">Mail</div>
+      </div>
+
+
+      <div class="row" ng-repeat="candidate in candidates">
+          <div class="col-xs-2">{{candidate.id}}</div>
+          <div class="col-xs-2">{{candidate.name}}</div>
+          <div class="col-xs-2">{{candidate.surname}}</div>
+          <div class="col-xs-2">{{candidate.email}}</div>
+      </div>
+
+  </div>
+  <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="./bower_components/angular-resource/angular-resource.min.js"></script>
+  <script type="text/javascript" src="./bower_components/lodash/lodash.min.js"></script>
+  <script type="text/javascript" src="./app/app.js"></script>
+  <script type="text/javascript" src="./app/controllers.js"></script>
+  <script type="text/javascript" src="./app/services.js"></script>
+</body>
+</html>

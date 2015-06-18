@@ -1,11 +1,10 @@
 package com.nprogramming.interviewing;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
+@RequestMapping("/candidates")
 public class CandidateController {
 
     private final CandidatesRepository repository;
@@ -15,9 +14,24 @@ public class CandidateController {
         this.repository = repository;
     }
 
-    @RequestMapping(value = "/")
-    public String index(Model model) {
-        model.addAttribute("candidates", repository.findAll());
-        return "index";
+    @RequestMapping(method = RequestMethod.GET)
+    public Iterable<Candidate> getAll() {
+        return repository.findAll();
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public Candidate add(@RequestBody Candidate item) {
+        return repository.save(item);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public Candidate update(@RequestBody Candidate updatedItem, @PathVariable Long id) {
+        updatedItem.setId(id);
+        return repository.save(updatedItem);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable Long id) {
+        repository.delete(id);
     }
 }
