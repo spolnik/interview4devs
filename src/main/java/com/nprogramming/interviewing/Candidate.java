@@ -1,21 +1,20 @@
 package com.nprogramming.interviewing;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+import java.math.BigInteger;
+
+@Document
 public class Candidate {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private BigInteger id;
 
-    @Column
     private String name;
 
-    @Column
     private String surname;
 
-    @Column
     private String email;
 
     public Candidate() {
@@ -52,10 +51,6 @@ public class Candidate {
         this.email = email;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     @Override
     public String toString() {
         return "Candidate{" +
@@ -66,7 +61,7 @@ public class Candidate {
                 '}';
     }
 
-    public void setId(Long id) {
+    public void setId(BigInteger id) {
         this.id = id;
     }
 }

@@ -2,5 +2,7 @@ package com.nprogramming.interviewing;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface CandidatesRepository extends CrudRepository <Candidate, Long>{
+import java.math.BigInteger;
+
+public interface CandidatesRepository extends CrudRepository <Candidate, BigInteger>{
 }
