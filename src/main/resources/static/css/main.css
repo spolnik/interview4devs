@@ -1,12 +1,11 @@
 body {
-    padding-top: 60px;
     background-color: #eaf0f2;
 }
 
-.navbar-default .navbar-brand { color: #549809; }
-.navbar-default { background-color: #eaf0f2; }
+/*.navbar-default .navbar-brand { color: #549809; }
+.navbar-default { background-color: #eaf0f2; }*/
 
-p.success { color: #549809; }
+.navbar a { color: #549809; }
 
 hr {
 	width: 60%;
@@ -88,4 +87,8 @@ p {
 	.footer-basic-centered .footer-links a{
 		line-height: 1.8;
 	}
+}
+
+.navbar-toggle .icon-bar {
+  background-color: #549809;
 }

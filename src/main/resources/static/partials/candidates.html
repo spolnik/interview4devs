@@ -1,0 +1,23 @@
+<div class="container" ng-controller="AppController">
+
+    <h1 class="info">Candidates</h1>
+    <div class="alert alert-info" role="alert" ng-hide="candidates && candidates.length > 0">
+        There are no candidates yet.
+    </div>
+    <table class="table table-striped table-hover ">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Mail</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="candidate in candidates">
+            <td>{{candidate.name}}</td>
+            <td>{{candidate.surname}}</td>
+            <td>{{candidate.email}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

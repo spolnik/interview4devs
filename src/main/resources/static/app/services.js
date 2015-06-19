@@ -1,6 +1,6 @@
 (function(angular) {
   var ItemFactory = function($resource) {
-    return $resource('/candidates/:id', {
+    return $resource('/api/candidates/:id', {
       id: '@id'
     }, {
       update: {
