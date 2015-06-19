@@ -2,10 +2,9 @@ body {
     background-color: #eaf0f2;
 }
 
-/*.navbar-default .navbar-brand { color: #549809; }
-.navbar-default { background-color: #eaf0f2; }*/
-
 .navbar a { color: #549809; }
+
+p.success { color: #549809; }
 
 hr {
 	width: 60%;
