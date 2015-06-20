@@ -34,6 +34,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-remote-shell")
     compile("org.springframework.boot:spring-boot-starter-mobile")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    compile("org.springframework.boot:spring-boot-starter-security")
 
     compile('org.springframework.cloud:spring-cloud-spring-service-connector')
     compile('org.springframework.cloud:spring-cloud-cloudfoundry-connector')

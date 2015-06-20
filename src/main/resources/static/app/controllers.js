@@ -27,6 +27,5 @@
 
   AppController.$inject = ['$scope', 'Item'];
   angular.module("myApp.controllers")
-    .controller("AppController", AppController)
-    .controller('navigation', function () {});
+    .controller("AppController", AppController);
 }(angular));
