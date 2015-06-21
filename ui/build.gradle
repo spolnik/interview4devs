@@ -1,0 +1,68 @@
+buildscript {
+    ext {
+        springBootVersion = '1.2.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
+        classpath("io.spring.gradle:dependency-management-plugin:0.5.1.RELEASE")
+        classpath 'org.cloudfoundry:cf-gradle-plugin:1.1.2'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot' 
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'cloudfoundry'
+
+version = '0.0.9'
+
+jar {
+    baseName = 'interview4devs'
+    version = "$version"
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-mobile")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    compile("org.springframework.boot:spring-boot-starter-security")
+
+    compile('org.springframework.cloud:spring-cloud-spring-service-connector')
+    compile('org.springframework.cloud:spring-cloud-cloudfoundry-connector')
+
+    compile("org.slf4j:slf4j-api:1.7.12")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
+cloudfoundry {
+    target = "https://api.run.pivotal.io"
+    organization = "jacek.spolnik-org"
+    space = "development"
+    file = file("build/libs/interview4devs-${version}.jar")
+    uri = "interview4devs.cfapps.io"
+    memory = 512
+    instances = 1
+    services {
+        'interview4dev-db' {
+            label = 'mongolab'
+            plan = 'sandbox'
+            bind = true
+        }
+    }
+}
