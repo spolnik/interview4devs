@@ -12,17 +12,5 @@ angular
             return auth.authenticated;
         };
 
-        $scope.login = function() {
-            auth.authenticate($scope.credentials, function(authenticated) {
-                if (authenticated) {
-                    console.log("Login succeeded")
-                    $scope.error = false;
-                } else {
-                    console.log("Login failed")
-                    $scope.error = true;
-                }
-            });
-        };
-
         $scope.logout = auth.clear;
     });
