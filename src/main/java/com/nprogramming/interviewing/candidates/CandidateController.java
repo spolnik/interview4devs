@@ -1,4 +1,4 @@
-package com.nprogramming.interviewing;
+package com.nprogramming.interviewing.candidates;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,10 +9,10 @@ import java.math.BigInteger;
 @RequestMapping("/api/candidates")
 public class CandidateController {
 
-    private final CandidatesRepository repository;
+    private final CandidateRepository repository;
 
     @Autowired
-    public CandidateController(CandidatesRepository repository) {
+    public CandidateController(CandidateRepository repository) {
         this.repository = repository;
     }
 

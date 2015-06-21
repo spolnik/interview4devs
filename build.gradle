@@ -8,17 +8,21 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
         classpath("io.spring.gradle:dependency-management-plugin:0.5.1.RELEASE")
+        classpath 'org.cloudfoundry:cf-gradle-plugin:1.1.2'
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'spring-boot' 
-apply plugin: 'io.spring.dependency-management' 
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'cloudfoundry'
+
+version = '0.0.8'
 
 jar {
     baseName = 'interview4devs'
-    version = '0.0.6'
+    version = "$version"
 }
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -46,4 +50,21 @@ dependencies {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
+}
+
+cloudfoundry {
+    target = "https://api.run.pivotal.io"
+    organization = "jacek.spolnik-org"
+    space = "development"
+    file = file("build/libs/interview4devs-${version}.jar")
+    uri = "interview4devs.cfapps.io"
+    memory = 512
+    instances = 1
+    services {
+        'interview4dev-db' {
+            label = 'mongolab'
+            plan = 'sandbox'
+            bind = true
+        }
+    }
 }

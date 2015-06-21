@@ -1,4 +1,4 @@
-package com.nprogramming.interviewing;
+package com.nprogramming.interviewing.candidates;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

@@ -1,4 +1,4 @@
-package com.nprogramming.interviewing;
+package com.nprogramming.interviewing.users.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
