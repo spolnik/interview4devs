@@ -5,13 +5,13 @@ angular
         $locationProvider.html5Mode(true);
 
         $routeProvider.when('/', {
-            templateUrl : 'app/home/home.html',
+            templateUrl : 'js/home/home.html',
             controller : 'home'
         }).when('/candidates', {
-            templateUrl : 'app/candidates/candidates.html',
+            templateUrl : 'js/candidates/candidates.html',
             controller : 'candidates'
         }).when('/login', {
-            templateUrl : 'app/navigation/login.html',
+            templateUrl : 'js/navigation/login.html',
             controller : 'navigation'
         }).otherwise('/');
 

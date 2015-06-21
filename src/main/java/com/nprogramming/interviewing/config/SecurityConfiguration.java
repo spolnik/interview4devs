@@ -12,10 +12,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -25,7 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers(
-                        "/", "/bower_components/**", "/app/**", "/login", "/user"
+                        "/", "/bower_components/**", "/login", "/index.html", "/user"
                 ).permitAll()
                 .antMatchers("/users/**")
                     .hasAuthority("ADMIN")
