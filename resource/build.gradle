@@ -1,0 +1,41 @@
+
+jar {
+    baseName = 'hiringDefined-resource'
+    version = "$version"
+}
+
+dependencies {
+    compile libs.spring.boot.web,
+            libs.spring.boot.actuator,
+            libs.spring.boot.remote_shell,
+            libs.spring.boot.mongodb,
+            libs.spring.boot.security,
+            libs.spring.boot.redis,
+            libs.spring.cloud.spring_service_connector,
+            libs.spring.cloud.cloudfoundry_connector,
+            libs.spring.session
+
+    testCompile libs.spring.boot.test
+}
+
+cloudfoundry {
+    target = "https://api.run.pivotal.io"
+    organization = "jacek.spolnik-org"
+    space = "development"
+    file = file("build/libs/hiringDefined-resource-${version}.jar")
+    uri = "hiringDefined-resource.cfapps.io"
+    memory = 512
+    instances = 1
+    services {
+        'interview4dev-db' {
+            label = 'mongolab'
+            plan = 'sandbox'
+            bind = true
+        }
+        'redis-db' {
+            label = 'rediscloud'
+            plan = '30MB'
+            bind = true
+        }
+    }
+}
