@@ -1,6 +1,6 @@
 angular.module('candidates', [])
     .factory("Candidate", function($resource) {
-        return $resource('http://localhost:9000/api/candidates/:id', {
+        return $resource('resource/api/candidates/:id', {
             id: '@id'
         }, {
             update: {
