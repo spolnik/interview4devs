@@ -1,0 +1,47 @@
+apply from: "$rootDir/libraries.gradle"
+
+buildscript {
+    ext {
+        springBootVersion = '1.2.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("io.spring.gradle:dependency-management-plugin:0.5.1.RELEASE")
+        classpath 'org.cloudfoundry:cf-gradle-plugin:1.1.2'
+    }
+}
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'spring-boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'cloudfoundry'
+
+    repositories {
+        mavenCentral()
+    }
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    version = '0.0.3'
+
+    dependencies {
+        compile libs.slf4j_api,
+                libs.logback,
+                libs.guava
+
+        testCompile libs.test.junit,
+                libs.test.assertj,
+                libs.test.mockito
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}

@@ -1,34 +1,7 @@
-buildscript {
-    ext {
-        springBootVersion = '1.2.4.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
-        classpath("io.spring.gradle:dependency-management-plugin:0.5.1.RELEASE")
-        classpath 'org.cloudfoundry:cf-gradle-plugin:1.1.2'
-    }
-}
-
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'spring-boot' 
-apply plugin: 'io.spring.dependency-management'
-apply plugin: 'cloudfoundry'
-
-version = '0.0.1'
 
 jar {
     baseName = 'hiringDefined'
     version = "$version"
-}
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-repositories {
-    mavenCentral()
 }
 
 dependencyManagement {
@@ -38,26 +11,17 @@ dependencyManagement {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-mobile")
-    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
-    compile("org.springframework.boot:spring-boot-starter-security")
-    compile("org.springframework.boot:spring-boot-starter-redis")
+    compile libs.spring.boot.web,
+            libs.spring.boot.mongodb,
+            libs.spring.boot.security,
+            libs.spring.boot.redis,
+            libs.spring.cloud.spring_service_connector,
+            libs.spring.cloud.cloudfoundry_connector,
+            libs.spring.cloud.security,
+            libs.spring.cloud.zuul,
+            libs.spring.session
 
-    compile('org.springframework.cloud:spring-cloud-spring-service-connector')
-    compile('org.springframework.cloud:spring-cloud-cloudfoundry-connector')
-    compile('org.springframework.cloud:spring-cloud-starter-security')
-    compile('org.springframework.cloud:spring-cloud-starter-zuul')
-
-    compile('org.springframework.session:spring-session:1.0.1.RELEASE')
-
-    compile("org.slf4j:slf4j-api:1.7.12")
-
-    testCompile("org.springframework.boot:spring-boot-starter-test")
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+    testCompile libs.spring.boot.test
 }
 
 cloudfoundry {
