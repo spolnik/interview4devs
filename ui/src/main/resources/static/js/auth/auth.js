@@ -26,11 +26,13 @@ angular.module('auth', []).factory(
                                     + credentials.password)
                 } : {};
 
+                $rootScope.user = ''
                 $http.get('user', {
                     headers : headers
                 }).success(function(data) {
                     if (data.name) {
                         auth.authenticated = true;
+                        $rootScope.user =data.name
                     } else {
                         auth.authenticated = false;
                     }
@@ -46,6 +48,7 @@ angular.module('auth', []).factory(
             clear : function() {
                 $location.path(auth.loginPath);
                 auth.authenticated = false;
+                $rootScope.user = ''
                 $http.post(auth.logoutPath, {}).success(function() {
                     console.log("Logout succeeded");
                 }).error(function(data) {

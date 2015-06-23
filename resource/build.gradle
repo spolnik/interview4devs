@@ -1,11 +1,14 @@
+apply plugin: 'spring-boot'
+apply plugin: 'cloudfoundry'
 
 jar {
-    baseName = 'hiringDefined-resource'
+    baseName = 'hiringdefined-resource'
     version = "$version"
 }
 
 dependencies {
-    compile libs.spring.boot.web,
+    compile project(":common"),
+            libs.spring.boot.web,
             libs.spring.boot.actuator,
             libs.spring.boot.remote_shell,
             libs.spring.boot.mongodb,
@@ -20,10 +23,10 @@ dependencies {
 
 cloudfoundry {
     target = "https://api.run.pivotal.io"
-    organization = "jacek.spolnik-org"
+    organization = "hiringdefined-org"
     space = "development"
-    file = file("build/libs/hiringDefined-resource-${version}.jar")
-    uri = "hiringDefined-resource.cfapps.io"
+    file = file("build/libs/hiringdefined-resource-${version}.jar")
+    uri = "hiringdefined-resource.cfapps.io"
     memory = 512
     instances = 1
     services {

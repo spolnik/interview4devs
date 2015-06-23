@@ -1,5 +1,5 @@
 angular
-    .module("myApp", ["ngResource", "ngRoute", "auth", "home", "candidates", "navigation"])
+    .module("myApp", ["ngResource", "ngRoute", "auth", "home", "candidates", "navigation", 'spring-security-csrf-token-interceptor'])
     .config(function($routeProvider, $httpProvider, $locationProvider) {
 
         $locationProvider.html5Mode(true);
