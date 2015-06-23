@@ -1,5 +1,13 @@
 angular
-    .module("myApp", ["ngResource", "ngRoute", "auth", "home", "candidates", "navigation", 'spring-security-csrf-token-interceptor'])
+    .module("myApp", [
+        "ngResource",
+        "ngRoute",
+        "auth",
+        "home",
+        "candidates",
+        "navigation",
+        'spring-security-csrf-token-interceptor'
+    ])
     .config(function($routeProvider, $httpProvider, $locationProvider) {
 
         $locationProvider.html5Mode(true);
@@ -13,6 +21,10 @@ angular
         }).when('/login', {
             templateUrl : 'js/navigation/login.html',
             controller : 'navigation'
+        }).when('/register', {
+            templateUrl: 'js/register/register.html',
+            controller: 'register'
+        })
         }).otherwise('/');
 
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';

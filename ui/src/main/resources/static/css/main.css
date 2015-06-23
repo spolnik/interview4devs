@@ -2,12 +2,7 @@ body {
     background-color: #eaf0f2;
 }
 
-.navbar a { color: #549809; }
-
-p.success { color: #549809; }
-a.green { color: #549809; }
-h2.green { color: #549809; }
-label.green { color: #549809; }
+.navbar a, p.success, a.green, h2.green, label.green { color: #549809; }
 
 hr {
 	width: 60%;
