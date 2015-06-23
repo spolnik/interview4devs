@@ -1,0 +1,27 @@
+{
+  "name": "interview4devs",
+  "version": "0.0.0",
+  "authors": [
+    "Jacek Spolnik <jacek.spolnik@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/main/resources/static/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "~3.9.3",
+    "angular": "~1.4.1",
+    "angular-resource": "~1.4.1",
+    "angular-route": "~1.4.1",
+    "bootstrap": "~3.3.5",
+    "spring-security-csrf-token-interceptor": "~0.1.5"
+  }
+}

@@ -2,3 +2,4 @@ rootProject.name = 'hiringDefined'
 
 include 'ui'
 include 'resource'
+include 'gateway'

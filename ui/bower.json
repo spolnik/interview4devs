@@ -1,5 +1,5 @@
 {
-  "name": "interview4devs",
+  "name": "hiringDefinedAuth",
   "version": "0.0.0",
   "authors": [
     "Jacek Spolnik <jacek.spolnik@gmail.com>"
@@ -18,9 +18,6 @@
   ],
   "dependencies": {
     "lodash": "~3.9.3",
-    "angular": "~1.4.1",
-    "angular-resource": "~1.4.1",
-    "angular-route": "~1.4.1",
     "bootstrap": "~3.3.5"
   }
 }
