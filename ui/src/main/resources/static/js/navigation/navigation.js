@@ -6,6 +6,8 @@ angular
             return auth.authenticated;
         };
 
+        $scope.user = '';
+
         $scope.logout = auth.clear;
 
         $scope.login = function() {
@@ -15,7 +17,7 @@ angular
             			data: $.param($scope.form),
             			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             		}).then(function() {
-            			window.location.href = 'index.html';
+            			window.location.href = '/';
             		}, function(err) {
             			console.log(err);
             		});

@@ -8,7 +8,7 @@ angular
             templateUrl : 'js/home/home.html',
             controller : 'home'
         }).when('/candidates', {
-            templateUrl : 'js/candidates/candidates.html',
+            templateUrl : 'partials/candidates.html',
             controller : 'candidates'
         }).when('/login', {
             templateUrl : 'js/navigation/login.html',
@@ -16,6 +16,7 @@ angular
         }).otherwise('/');
 
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
-    }).run(function(auth) {
+    })
+    .run(function(auth) {
         auth.init("/", "/login", "/logout");
     });

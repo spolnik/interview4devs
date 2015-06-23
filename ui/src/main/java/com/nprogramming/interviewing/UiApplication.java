@@ -24,6 +24,9 @@ public class UiApplication {
 
     @RequestMapping("/user")
     public Map<String, Object> user(Principal user) {
+        if (user == null)
+            return null;
+
         return Collections.<String, Object> singletonMap("name", user.getName());
     }
 

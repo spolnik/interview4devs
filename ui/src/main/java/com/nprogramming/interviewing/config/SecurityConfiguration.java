@@ -37,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http
             .authorizeRequests()
-                    .antMatchers("/", "/bower_components/**", "/login", "/index.html").permitAll()
+                    .antMatchers("/", "/bower_components/**", "/login", "/user").permitAll()
                     .anyRequest().authenticated()
             .and()
                 .formLogin()

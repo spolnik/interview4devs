@@ -3,7 +3,7 @@ angular.module('auth', []).factory(
     function($rootScope, $http, $location) {
 
         enter = function() {
-            if ($location.path() != auth.loginPath) {
+            if ($location.path() != auth.loginPath && $location.path() != auth.homePath) {
                 auth.path = $location.path();
                 if (!auth.authenticated) {
                     $location.path(auth.loginPath);
@@ -20,19 +20,10 @@ angular.module('auth', []).factory(
 
             authenticate : function(credentials, callback) {
 
-                var headers = credentials && credentials.username ? {
-                    authorization : "Basic "
-                            + btoa(credentials.username + ":"
-                                    + credentials.password)
-                } : {};
-
-                $rootScope.user = ''
-                $http.get('user', {
-                    headers : headers
-                }).success(function(data) {
+                $http.get('user').success(function(data) {
                     if (data.name) {
                         auth.authenticated = true;
-                        $rootScope.user =data.name
+                        $rootScope.user = data.name
                     } else {
                         auth.authenticated = false;
                     }
