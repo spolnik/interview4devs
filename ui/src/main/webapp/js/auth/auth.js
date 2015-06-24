@@ -1,9 +1,11 @@
-angular.module('auth', []).factory(
+angular.module('myApp').factory(
     'auth',
-    function($rootScope, $http, $location) {
+    function($rootScope, $http, $location, Register) {
 
         enter = function() {
-            if ($location.path() != auth.loginPath && $location.path() != auth.homePath) {
+            if ($location.path() != auth.loginPath &&
+                $location.path() != auth.homePath &&
+                $location.path() != '/register') {
                 auth.path = $location.path();
                 if (!auth.authenticated) {
                     $location.path(auth.loginPath);
@@ -63,6 +65,19 @@ angular.module('auth', []).factory(
                 $rootScope.$on('$routeChangeStart', function() {
                     enter();
                 });
+            },
+
+            createAccount : function (account, callback) {
+                var cb = callback || angular.noop;
+
+                return Register.save(account,
+                    function () {
+                        return cb(account);
+                    },
+                    function (err) {
+                        this.logout();
+                        return cb(err);
+                    }.bind(this)).$promise;
             }
         };
 

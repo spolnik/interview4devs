@@ -13,7 +13,8 @@ public class Routes {
             "/",
             "/login",
             "/logout",
-            "/candidates"
+            "/candidates",
+            "/register"
     })
     public String index() {
         return "forward:/index.html";

@@ -36,6 +36,9 @@ public class AccountResource {
     @Autowired
     private PersistentTokenRepository persistentTokenRepository;
 
+    @Autowired
+    private MailService mailService;
+
     /**
      * POST  /register -> register the user.
      */
@@ -57,6 +60,7 @@ public class AccountResource {
                     ":" +                                  // ":"
                     request.getServerPort();               // "80"
 
+                    mailService.sendActivationEmail(user, baseUrl);
                     return new ResponseEntity<>(HttpStatus.CREATED);
                 })
         );
@@ -70,7 +74,7 @@ public class AccountResource {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> activateAccount(@RequestParam(value = "key") String key) {
         return Optional.ofNullable(userService.activateRegistration(key))
-            .map(user -> new ResponseEntity<String>(HttpStatus.OK))
+            .map(user -> new ResponseEntity<String>("Account activated.", HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 

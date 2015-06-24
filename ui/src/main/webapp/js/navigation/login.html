@@ -1,25 +1,39 @@
-<div class="alert alert-danger" ng-show="error">
-    <strong>Authentication failed!</strong> Please check your credentials and try again.
-</div>
-
-<div class="container col-xs-12 col-md-4 col-md-offset-4">
-  <form class="form-signin" ng-submit="login()">
-    <h2 class="form-signin-heading green">Please sign in</h2>
-    <label for="email" class="sr-only">Email address</label>
-    <input type="email" id="email" class="form-control"
-           placeholder="Email address" required autofocus autocomplete="off" ng-model="form.email" >
-    <label for="password" class="sr-only">Password</label>
-    <input type="password" id="password" class="form-control"
-           placeholder="Password" required autocomplete="off" ng-model="form.password">
-    <div class="checkbox">
-      <label class="green">
-        <input type="checkbox" value="rememberMe" id="rememberMe" ng-model="form.rememberMe"> Remember me
-      </label>
+<div class="row">
+    <div class="alert alert-danger" ng-show="error">
+        <strong>Authentication failed!</strong> Please check your credentials and try again.
     </div>
-    <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
-  </form>
-    <p></p>
-    <div class="center">
-        <a href="/register" class="green">Create account</a>
+
+    <div class="container col-xs-12 col-md-4 col-md-offset-4">
+        <form class="form-signin" ng-submit="login()">
+
+            <h2 class="form-signin-heading green">Please sign in</h2>
+
+            <div class="form-group">
+                <label for="email" class="sr-only">Email address</label>
+                <input type="email" id="email" class="form-control"
+                       placeholder="Email address" required autofocus autocomplete="off" ng-model="form.email">
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" class="form-control"
+                       placeholder="Password" required autocomplete="off" ng-model="form.password">
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label class="green">
+                        <input type="checkbox" value="rememberMe" id="rememberMe" ng-model="form.rememberMe"> Remember me
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
+        </form>
+        <p></p>
+
+        <div class="center">
+            <a href="/register" class="green">Create account</a>
+        </div>
     </div>
 </div>

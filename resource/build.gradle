@@ -18,7 +18,8 @@ dependencies {
             libs.spring.cloud.cloudfoundry_connector,
             libs.spring.session,
             libs.joda,
-            libs.commons_lang
+            libs.commons_lang,
+            libs.spring.boot.thymeleaf
 
     testCompile libs.spring.boot.test
 }

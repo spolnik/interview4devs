@@ -2,10 +2,8 @@ var myApp = angular
     .module("myApp", [
         "ngResource",
         "ngRoute",
-        "auth",
         "home",
         "candidates",
-        "navigation",
         'spring-security-csrf-token-interceptor'
     ]);
 myApp.config(function($routeProvider, $httpProvider, $locationProvider) {
@@ -23,7 +21,7 @@ myApp.config(function($routeProvider, $httpProvider, $locationProvider) {
             controller : 'navigation'
         }).when('/register', {
             templateUrl: 'js/register/register.html',
-            controller: 'register'
+            controller: 'RegisterController'
         }).otherwise('/');
 
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';

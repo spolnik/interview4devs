@@ -13,7 +13,8 @@ ext {
                     redis: "org.springframework.boot:spring-boot-starter-redis",
                     test: "org.springframework.boot:spring-boot-starter-test",
                     actuator: "org.springframework.boot:spring-boot-starter-actuator",
-                    remote_shell: "org.springframework.boot:spring-boot-starter-remote-shell"
+                    remote_shell: "org.springframework.boot:spring-boot-starter-remote-shell",
+                    thymeleaf: "org.springframework.boot:spring-boot-starter-thymeleaf"
                 ],
                 cloud : [
                     spring_service_connector: 'org.springframework.cloud:spring-cloud-spring-service-connector',

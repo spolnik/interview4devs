@@ -1,5 +1,5 @@
 angular
-    .module('navigation', ['ngRoute', 'auth'])
+    .module('myApp')
     .controller('navigation', function($scope, $route, $http, auth) {
 
         $scope.isAuthenticated = function() {

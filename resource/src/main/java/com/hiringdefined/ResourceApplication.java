@@ -9,7 +9,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 
 @SpringBootApplication
 @EnableRedisHttpSession
-public class ResourceApplication extends WebSecurityConfigurerAdapter {
+public class ResourceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ResourceApplication.class, args);
@@ -17,11 +17,5 @@ public class ResourceApplication extends WebSecurityConfigurerAdapter {
 
     @Autowired(required = false)
     private DatabaseLoader databaseLoader;
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().disable();
-        http.authorizeRequests().anyRequest().authenticated();
-    }
 }
 
