@@ -16,7 +16,9 @@ dependencies {
             libs.spring.boot.redis,
             libs.spring.cloud.spring_service_connector,
             libs.spring.cloud.cloudfoundry_connector,
-            libs.spring.session
+            libs.spring.session,
+            libs.joda,
+            libs.commons_lang
 
     testCompile libs.spring.boot.test
 }

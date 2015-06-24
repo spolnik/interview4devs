@@ -7,12 +7,12 @@ import java.math.BigInteger;
 
 @RestController
 @RequestMapping("/api/candidates")
-public class CandidateController {
+public class CandidateResource {
 
     private final CandidateRepository repository;
 
     @Autowired
-    public CandidateController(CandidateRepository repository) {
+    public CandidateResource(CandidateRepository repository) {
         this.repository = repository;
     }
 
