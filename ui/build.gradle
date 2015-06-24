@@ -12,6 +12,14 @@ dependencyManagement {
     }
 }
 
+bootRepackage {
+    mainClass = 'com.hiringdefined.UiApplication'
+}
+
+springBoot {
+    mainClass = 'com.hiringdefined.UiApplication'
+}
+
 dependencies {
     compile project(":common"),
             libs.spring.boot.web,
